@@ -25,11 +25,14 @@ L.tileLayer(tiles, {
 /**
  *  Called (by main.js) on load and after form submission
  */
-function updateMap(data) {
+function updateMap(newData) {
     // 👉 add code inside this function (Chapter 10) ...
-
-
-
+    data = newData;
+    removeMarkers();
+    for (let i = 0; i < data.length; i++) {
+        let marker = createMarker(data[i]);
+        markerLayer.push(marker);
+    }
     // 👈
     afterUpdateMap();
 }
